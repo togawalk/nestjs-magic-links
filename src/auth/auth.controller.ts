@@ -5,11 +5,13 @@ import {
   Post,
   Req,
   Res,
+  UseGuards,
   ValidationPipe,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { MagicLoginStrategy } from './magiclogin.stategy';
 import { PasswordlessLoginDto } from './dto/passwordless-login.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('auth')
 export class AuthController {
@@ -28,8 +30,10 @@ export class AuthController {
     return this.strategy.send(req, res);
   }
 
+  @UseGuards(AuthGuard('magiclogin'))
   @Get('login/callback')
-  callback() {
+  callback(@Req() req) {
     // TODO: generate JWT access token
+    return this.authService.generateTokens(req.user);
   }
 }
