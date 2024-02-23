@@ -7,16 +7,16 @@ export class UsersService {
     {
       id: 1,
       name: 'Toga',
-      email: 'toga@email.com'
+      email: 'toga@email.com',
     },
     {
       id: 2,
       name: 'Walk',
-      email: 'walk@email.com'
-    }
-  ]
+      email: 'walk@email.com',
+    },
+  ];
 
   findOneByEmail(email: string): User | undefined {
-    return this.users.find((user) => user.email === email)
+    return this.users.find((user) => user.email === email);
   }
 }
