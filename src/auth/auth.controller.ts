@@ -33,7 +33,6 @@ export class AuthController {
   @UseGuards(AuthGuard('magiclogin'))
   @Get('login/callback')
   callback(@Req() req) {
-    // TODO: generate JWT access token
     return this.authService.generateTokens(req.user);
   }
 }

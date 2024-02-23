@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  getWelcomeMessage(user: { name: string; id: number }) {
+    return `You're in, ${user.name}`;
   }
 }

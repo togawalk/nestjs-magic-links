@@ -14,6 +14,11 @@ export class UsersService {
       name: 'Walk',
       email: 'walk@email.com',
     },
+    {
+      id: 3,
+      name: 'User',
+      email: 'user@test.com',
+    },
   ];
 
   findOneByEmail(email: string): User | undefined {
